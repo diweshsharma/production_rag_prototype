@@ -1,0 +1,204 @@
+# =========================
+# Environment & Secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# API keys / credentials
+*.pem
+*.key
+*.crt
+secrets/
+credentials/
+credentials.json
+
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# =========================
+# Virtual Environments
+# =========================
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+
+# =========================
+# RAG Data
+# =========================
+# Raw documents / datasets
+data/raw/
+data/uploads/
+
+# Processed/generated data
+data/processed/
+data/chunks/
+
+# Generated embeddings
+data/embeddings/
+
+# Local vector databases
+data/vectorstore/
+data/vectorstores/
+
+# Common vector DB directories
+chroma/
+chroma_db/
+chroma_data/
+faiss_index/
+qdrant_storage/
+weaviate_data/
+
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+*.log.*
+log/
+
+# =========================
+# Cache
+# =========================
+.cache/
+cache/
+.tmp/
+tmp/
+
+# Model/cache files
+*.bin
+*.pt
+*.pth
+*.safetensors
+*.onnx
+
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# =========================
+# IDE / Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# VS Code local settings
+.vscode/settings.json
+
+
+# =========================
+# Docker
+# =========================
+# Local Docker overrides
+docker-compose.override.yml
+
+
+# =========================
+# Node (if frontend exists)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+.next/
+.nuxt/
+.vite/
+
+
+# =========================
+# Testing
+# =========================
+.pytest_cache/
+.tox/
+.nox/
+
+# Test artifacts
+test-results/
+coverage/
+
+
+# =========================
+# Local databases
+# =========================
+*.db
+*.sqlite
+*.sqlite3
+
+
+# =========================
+# Generated files
+# =========================
+*.tmp
+*.temp
+*.bak
+
+# Generated reports
+reports/generated/
+outputs/
+
+
+# =========================
+# Production / Deployment
+# =========================
+# Local deployment files
+docker-compose.local.yml
+
+# Kubernetes local/generated files
+*.secret.yaml
+*.secret.yml
+
+
+# =========================
+# LangChain / LangSmith
+# =========================
+# Local LangChain cache
+.langchain/
+
+# LangSmith credentials should remain in environment variables
+langsmith/
+
+
+# =========================
+# Project-specific local data
+# =========================
+local_data/
+storage/
+uploads/
