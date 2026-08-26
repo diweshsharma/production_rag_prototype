@@ -74,6 +74,12 @@ def embed_batch(batch: list[str]) -> list[list[float]]:
     else:
         return active_model.encode(batch , show_progress_bar = False).tolist()
 
+def embed_query(query:str) -> list[float]:
+    _init()
+    if model_type == 'gemini':
+        return active_model.embed_query(query)
+    else:
+        return active_model.encode(query).tolist()
         
 def embed_text(texts : list[str]) -> list[list[float]]:
     _init()
@@ -84,3 +90,5 @@ def embed_text(texts : list[str]) -> list[list[float]]:
             all_embeddings.extend(embed_batch(batch))
 
     return all_embeddings
+
+
