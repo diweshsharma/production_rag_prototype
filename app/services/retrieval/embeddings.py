@@ -14,14 +14,14 @@ model_type: str | None = None
 def probe_gemini():
     """Try one embed call to verify Gemini is reachable"""
     try:
-        model = GoogleGenerativeAIEmbeddings(model_name="gemini-embedding-2-preview",
+        model = GoogleGenerativeAIEmbeddings(model="gemini-embedding-2-preview",
         google_api_key = config.GEMINI_API_KEY)
         model.embed_query("test")
         logfire.info("gemini embeddings ready")
-        return True
+        return model
     except Exception as e:
         logfire.warning(f"gemini embeddings not ready: {e}")
-        return False
+        return None
     
 
 
@@ -53,6 +53,7 @@ def get_embed_dim() -> int:
 
 
 def embed_batch(batch: list[str]) -> list[list[float]]:
+    _init()
     if model_type == 'gemini':
         for attempt in range(4):
             try:
@@ -86,7 +87,7 @@ def embed_text(texts : list[str]) -> list[list[float]]:
     all_embeddings : list[list[float]] = []
     for i in range(0 , len(texts) , Batch_size):
         batch = texts[i : i + Batch_size]
-        with logfire.info(f"Embedding batch" , model = model_type, start = i , size = len(batch)):
+        with logfire.span(f"Embedding batch" , model = model_type, start = i , size = len(batch)):
             all_embeddings.extend(embed_batch(batch))
 
     return all_embeddings
